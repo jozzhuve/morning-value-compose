@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "b888cbde-b2bc-4916-b954-b64567bd913c",
+		"name": "MORNING_VALUE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34042819"
+	},
+	"item": [
+		{
+			"name": "SPECIES",
+			"item": [
+				{
+					"name": "/api/species",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IllUY2VPNUlKeXlxUjZqekRTNWlBYnBlNDJKdyIsImtpZCI6IllUY2VPNUlKeXlxUjZqekRTNWlBYnBlNDJKdyJ9.eyJhdWQiOiJhcGk6Ly9ib29rcy9wb2MiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9hZDVmYjk4NC00ZWNhLTQ5YmQtOTc1My1kNjgxZTI3ZWYzM2QvIiwiaWF0IjoxNzM4NTg3MzMwLCJuYmYiOjE3Mzg1ODczMzAsImV4cCI6MTczODU5MTIzMCwiYWlvIjoiazJSZ1lHQVJQVlhCZDBBcC9tdW16UElaQVozSEFRPT0iLCJhcHBpZCI6IjVkYjZhOTZlLWU5N2EtNDZhOC05ZjcyLTMwMzVhNmZhODRhZSIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2FkNWZiOTg0LTRlY2EtNDliZC05NzUzLWQ2ODFlMjdlZjMzZC8iLCJvaWQiOiIyNGM3YWEyNC1lNDExLTQyYzUtYWVlYi04NGI3YTU2M2UwNTIiLCJyaCI6IjEuQWFnQWhMbGZyY3BPdlVtWFU5YUI0bjd6UFN5ZFB6OUNnaFJKclYwU1dIQldwNGlvQUFDb0FBLiIsInJvbGVzIjpbIkJvb2tzLldyaXRlIiwiQm9va3MucmVhZCJdLCJzdWIiOiIyNGM3YWEyNC1lNDExLTQyYzUtYWVlYi04NGI3YTU2M2UwNTIiLCJ0aWQiOiJhZDVmYjk4NC00ZWNhLTQ5YmQtOTc1My1kNjgxZTI3ZWYzM2QiLCJ1dGkiOiJfdkFySVprV3YwT2FCN2l0OE1GY0FBIiwidmVyIjoiMS4wIn0.ehYU8JQGd-Z14bOFLtTyzhsAUR6IFUvK6cQQsbawNmL288epghIjuklMRTIsED0lBXWJP6iVOJPC3ptRV50fdNNzW6rV6_yShZwVEPAc2P6IyrH9nEtZka3xla60JEsAzNreq2LWIUrWEPEbksTIbbMgjuUbGLiaR1znQqnlJyx-5e6JU4kEfmCHRFMyf2CPDprAr_Y4aYTZMOxLpgscbUCMkAVoFx45OUyoXd0fGF3wBkn1sjBiNOJzZ4qqNYTah0C0nj48OjWzVLc5EZJIDQvk4mQumxOnFMP6sMBZIxhVICqlYiJnGyogjS7_0hqDMuAkCetrq7WY5kL83wRcBw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 4,\n  \"name\": \"Pegasus\",\n  \"powerLevel\": 55,\n  \"specialAbility\": \"Cosmos\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/species",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"species"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/species",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IllUY2VPNUlKeXlxUjZqekRTNWlBYnBlNDJKdyIsImtpZCI6IllUY2VPNUlKeXlxUjZqekRTNWlBYnBlNDJKdyJ9.eyJhdWQiOiJhcGk6Ly9ib29rcy9wb2MiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9hZDVmYjk4NC00ZWNhLTQ5YmQtOTc1My1kNjgxZTI3ZWYzM2QvIiwiaWF0IjoxNzM4NTg3MzMwLCJuYmYiOjE3Mzg1ODczMzAsImV4cCI6MTczODU5MTIzMCwiYWlvIjoiazJSZ1lHQVJQVlhCZDBBcC9tdW16UElaQVozSEFRPT0iLCJhcHBpZCI6IjVkYjZhOTZlLWU5N2EtNDZhOC05ZjcyLTMwMzVhNmZhODRhZSIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2FkNWZiOTg0LTRlY2EtNDliZC05NzUzLWQ2ODFlMjdlZjMzZC8iLCJvaWQiOiIyNGM3YWEyNC1lNDExLTQyYzUtYWVlYi04NGI3YTU2M2UwNTIiLCJyaCI6IjEuQWFnQWhMbGZyY3BPdlVtWFU5YUI0bjd6UFN5ZFB6OUNnaFJKclYwU1dIQldwNGlvQUFDb0FBLiIsInJvbGVzIjpbIkJvb2tzLldyaXRlIiwiQm9va3MucmVhZCJdLCJzdWIiOiIyNGM3YWEyNC1lNDExLTQyYzUtYWVlYi04NGI3YTU2M2UwNTIiLCJ0aWQiOiJhZDVmYjk4NC00ZWNhLTQ5YmQtOTc1My1kNjgxZTI3ZWYzM2QiLCJ1dGkiOiJfdkFySVprV3YwT2FCN2l0OE1GY0FBIiwidmVyIjoiMS4wIn0.ehYU8JQGd-Z14bOFLtTyzhsAUR6IFUvK6cQQsbawNmL288epghIjuklMRTIsED0lBXWJP6iVOJPC3ptRV50fdNNzW6rV6_yShZwVEPAc2P6IyrH9nEtZka3xla60JEsAzNreq2LWIUrWEPEbksTIbbMgjuUbGLiaR1znQqnlJyx-5e6JU4kEfmCHRFMyf2CPDprAr_Y4aYTZMOxLpgscbUCMkAVoFx45OUyoXd0fGF3wBkn1sjBiNOJzZ4qqNYTah0C0nj48OjWzVLc5EZJIDQvk4mQumxOnFMP6sMBZIxhVICqlYiJnGyogjS7_0hqDMuAkCetrq7WY5kL83wRcBw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/species",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"species"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "COMBAT",
+			"item": [
+				{
+					"name": "api/combats",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IllUY2VPNUlKeXlxUjZqekRTNWlBYnBlNDJKdyIsImtpZCI6IllUY2VPNUlKeXlxUjZqekRTNWlBYnBlNDJKdyJ9.eyJhdWQiOiJhcGk6Ly9ib29rcy9wb2MiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9hZDVmYjk4NC00ZWNhLTQ5YmQtOTc1My1kNjgxZTI3ZWYzM2QvIiwiaWF0IjoxNzM4NTg3MzMwLCJuYmYiOjE3Mzg1ODczMzAsImV4cCI6MTczODU5MTIzMCwiYWlvIjoiazJSZ1lHQVJQVlhCZDBBcC9tdW16UElaQVozSEFRPT0iLCJhcHBpZCI6IjVkYjZhOTZlLWU5N2EtNDZhOC05ZjcyLTMwMzVhNmZhODRhZSIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2FkNWZiOTg0LTRlY2EtNDliZC05NzUzLWQ2ODFlMjdlZjMzZC8iLCJvaWQiOiIyNGM3YWEyNC1lNDExLTQyYzUtYWVlYi04NGI3YTU2M2UwNTIiLCJyaCI6IjEuQWFnQWhMbGZyY3BPdlVtWFU5YUI0bjd6UFN5ZFB6OUNnaFJKclYwU1dIQldwNGlvQUFDb0FBLiIsInJvbGVzIjpbIkJvb2tzLldyaXRlIiwiQm9va3MucmVhZCJdLCJzdWIiOiIyNGM3YWEyNC1lNDExLTQyYzUtYWVlYi04NGI3YTU2M2UwNTIiLCJ0aWQiOiJhZDVmYjk4NC00ZWNhLTQ5YmQtOTc1My1kNjgxZTI3ZWYzM2QiLCJ1dGkiOiJfdkFySVprV3YwT2FCN2l0OE1GY0FBIiwidmVyIjoiMS4wIn0.ehYU8JQGd-Z14bOFLtTyzhsAUR6IFUvK6cQQsbawNmL288epghIjuklMRTIsED0lBXWJP6iVOJPC3ptRV50fdNNzW6rV6_yShZwVEPAc2P6IyrH9nEtZka3xla60JEsAzNreq2LWIUrWEPEbksTIbbMgjuUbGLiaR1znQqnlJyx-5e6JU4kEfmCHRFMyf2CPDprAr_Y4aYTZMOxLpgscbUCMkAVoFx45OUyoXd0fGF3wBkn1sjBiNOJzZ4qqNYTah0C0nj48OjWzVLc5EZJIDQvk4mQumxOnFMP6sMBZIxhVICqlYiJnGyogjS7_0hqDMuAkCetrq7WY5kL83wRcBw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 3,\n    \"speciesAId\": 1,\n    \"speciesBId\": 4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/combats",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"combats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/combats/ranking",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IllUY2VPNUlKeXlxUjZqekRTNWlBYnBlNDJKdyIsImtpZCI6IllUY2VPNUlKeXlxUjZqekRTNWlBYnBlNDJKdyJ9.eyJhdWQiOiJhcGk6Ly9ib29rcy9wb2MiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9hZDVmYjk4NC00ZWNhLTQ5YmQtOTc1My1kNjgxZTI3ZWYzM2QvIiwiaWF0IjoxNzM4NTg3MzMwLCJuYmYiOjE3Mzg1ODczMzAsImV4cCI6MTczODU5MTIzMCwiYWlvIjoiazJSZ1lHQVJQVlhCZDBBcC9tdW16UElaQVozSEFRPT0iLCJhcHBpZCI6IjVkYjZhOTZlLWU5N2EtNDZhOC05ZjcyLTMwMzVhNmZhODRhZSIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2FkNWZiOTg0LTRlY2EtNDliZC05NzUzLWQ2ODFlMjdlZjMzZC8iLCJvaWQiOiIyNGM3YWEyNC1lNDExLTQyYzUtYWVlYi04NGI3YTU2M2UwNTIiLCJyaCI6IjEuQWFnQWhMbGZyY3BPdlVtWFU5YUI0bjd6UFN5ZFB6OUNnaFJKclYwU1dIQldwNGlvQUFDb0FBLiIsInJvbGVzIjpbIkJvb2tzLldyaXRlIiwiQm9va3MucmVhZCJdLCJzdWIiOiIyNGM3YWEyNC1lNDExLTQyYzUtYWVlYi04NGI3YTU2M2UwNTIiLCJ0aWQiOiJhZDVmYjk4NC00ZWNhLTQ5YmQtOTc1My1kNjgxZTI3ZWYzM2QiLCJ1dGkiOiJfdkFySVprV3YwT2FCN2l0OE1GY0FBIiwidmVyIjoiMS4wIn0.ehYU8JQGd-Z14bOFLtTyzhsAUR6IFUvK6cQQsbawNmL288epghIjuklMRTIsED0lBXWJP6iVOJPC3ptRV50fdNNzW6rV6_yShZwVEPAc2P6IyrH9nEtZka3xla60JEsAzNreq2LWIUrWEPEbksTIbbMgjuUbGLiaR1znQqnlJyx-5e6JU4kEfmCHRFMyf2CPDprAr_Y4aYTZMOxLpgscbUCMkAVoFx45OUyoXd0fGF3wBkn1sjBiNOJzZ4qqNYTah0C0nj48OjWzVLc5EZJIDQvk4mQumxOnFMP6sMBZIxhVICqlYiJnGyogjS7_0hqDMuAkCetrq7WY5kL83wRcBw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"speciesAId\": 1,\n    \"speciesBId\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/combats/ranking",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"combats",
+								"ranking"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
