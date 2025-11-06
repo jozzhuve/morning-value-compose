@@ -1,0 +1,53 @@
+
+version: "3.9"
+
+services:
+  species-service:
+    build: ./../morning-value-species-service
+    container_name: species-service
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - OTEL_SERVICE_NAME=species-service
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://jaeger:4317
+      - OTEL_TRACES_EXPORTER=otlp
+      - OTEL_METRICS_EXPORTER=none
+      - JAVA_TOOL_OPTIONS=-javaagent:/otel/opentelemetry-javaagent.jar
+    depends_on:
+      - jaeger
+
+  combat-service:
+    build: ./../morning-value-combat-service
+    container_name: combat-service
+    ports:
+      - "8082:8082"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SPECIES_SERVICE_URL=http://species-service:8081
+      - OTEL_SERVICE_NAME=combat-service
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://jaeger:4317
+      - OTEL_TRACES_EXPORTER=otlp
+      - OTEL_METRICS_EXPORTER=none
+      - JAVA_TOOL_OPTIONS=-javaagent:/otel/opentelemetry-javaagent.jar
+    depends_on:
+      - species-service
+      - jaeger
+
+  frontend:
+    build:
+      context: ./../morning-value-front-end
+      args:
+        - VITE_API_BASE=http://localhost:8082
+    container_name: torneo-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - combat-service
+
+  jaeger:
+    image: jaegertracing/all-in-one:1.57
+    container_name: jaeger
+    ports:
+      - "16686:16686"   # Jaeger UI
+      - "4317:4317"     # OTLP gRPC
