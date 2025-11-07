@@ -1,7 +1,20 @@
-
 version: "3.9"
 
 services:
+  jaeger:
+    image: jaegertracing/all-in-one:1.57
+    container_name: jaeger
+    environment:
+      - COLLECTOR_OTLP_ENABLED=true
+    ports:
+      - "16686:16686"   # UI
+      - "4317:4317"     # OTLP gRPC
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:16686"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
   species-service:
     build: ./../morning-value-species-service
     container_name: species-service
@@ -10,12 +23,20 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=docker
       - OTEL_SERVICE_NAME=species-service
-      - OTEL_EXPORTER_OTLP_ENDPOINT=http://jaeger:4317
       - OTEL_TRACES_EXPORTER=otlp
+      - OTEL_LOGS_EXPORTER=none
       - OTEL_METRICS_EXPORTER=none
+      - OTEL_EXPORTER_OTLP_PROTOCOL=grpc
+      - OTEL_EXPORTER_OTLP_TRACES_PROTOCOL=grpc
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://jaeger:4317
+      - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://jaeger:4317
+      - OTEL_RESOURCE_ATTRIBUTES=service.namespace=galactico,deployment.environment=docker
       - JAVA_TOOL_OPTIONS=-javaagent:/otel/opentelemetry-javaagent.jar
+    volumes:
+      - ./otel:/otel:ro
     depends_on:
-      - jaeger
+      jaeger:
+        condition: service_healthy
 
   combat-service:
     build: ./../morning-value-combat-service
@@ -24,15 +45,24 @@ services:
       - "8082:8082"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-      - SPECIES_SERVICE_URL=http://species-service:8081
+      - SPRING_APPLICATION_JSON={"species":{"service":{"base-url":"http://species-service:8081"}}}
       - OTEL_SERVICE_NAME=combat-service
-      - OTEL_EXPORTER_OTLP_ENDPOINT=http://jaeger:4317
       - OTEL_TRACES_EXPORTER=otlp
+      - OTEL_LOGS_EXPORTER=none
       - OTEL_METRICS_EXPORTER=none
+      - OTEL_EXPORTER_OTLP_PROTOCOL=grpc
+      - OTEL_EXPORTER_OTLP_TRACES_PROTOCOL=grpc
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://jaeger:4317
+      - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://jaeger:4317
+      - OTEL_RESOURCE_ATTRIBUTES=service.namespace=galactico,deployment.environment=docker
       - JAVA_TOOL_OPTIONS=-javaagent:/otel/opentelemetry-javaagent.jar
+    volumes:
+      - ./otel:/otel:ro
     depends_on:
-      - species-service
-      - jaeger
+      jaeger:
+        condition: service_healthy
+      species-service:
+        condition: service_started
 
   frontend:
     build:
@@ -43,11 +73,5 @@ services:
     ports:
       - "3000:80"
     depends_on:
-      - combat-service
-
-  jaeger:
-    image: jaegertracing/all-in-one:1.57
-    container_name: jaeger
-    ports:
-      - "16686:16686"   # Jaeger UI
-      - "4317:4317"     # OTLP gRPC
+      combat-service:
+        condition: service_started

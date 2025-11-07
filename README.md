@@ -16,7 +16,7 @@ Sistema demo con arquitectura de microservicios (hexagonal) para gestionar espec
 
 ## Ejecutar
 ```bash
-docker compose build
+docker compose build --no-cache
 docker compose up
 ```
 
